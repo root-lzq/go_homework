@@ -35,5 +35,6 @@ func DeleteImproved[T any](sli []T, index int) ([]T, error) {
 	if index < 0 || index >= len(sli) {
 		return nil, errors.New("attempt to delete incorrect slice index")
 	}
+	// 子切片不发生扩容的情况下，和原切片的容量相等
 	return append(sli[:index], sli[index+1:]...), nil
 }
